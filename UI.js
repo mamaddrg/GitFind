@@ -6,19 +6,18 @@ class UI {
         this.git = new Git(10, 'created: asc');
     }
 
-    // Init Search Box Event Listener
-    // We Have To Get Everything User Types
+    /* Init Search Box Event Listener
+     We Have To Get Everything User Types */
     initSearchListener() {
         searchBox.addEventListener('keyup', (event) => {
             // This Is What User Entered To Find
             const searchedText = event.target.value;
             if (searchedText != '') {
-                // Requset Git Class To Retrive Searched Text
-                // (then) After Receiving User And Repos, Pass Them to 
-                // ShowUserProfile And ShowUserRepos To Parse Data And Display In UI.
+                /* Requset Git Class To Retrive Searched Text
+                 (then) After Receiving User And Repos, Pass Them to 
+                 ShowUserProfile And ShowUserRepos To Parse Data And Display In UI. */
                 this.git.getUserData(searchedText)
                     .then( data => {
-                        console.log(data);
                         // Check If Response Is Null
                         if (data.user !== 'undefined') {
                             this.showUserProfile(data.user);
@@ -92,14 +91,14 @@ class UI {
     }
 
 
-    // If There Is'nt Somone By This Username
+    // If There Is NOT Somone By This Username
     showUserNotFound() {
         this.clearUI;
         this.profileUI.innerText = 'There is NOT any user by this username.';
     }
 
 
-    // Clear UI Profile
+    // Clear UI Profile Data
     clearUI() {
         this.profileUI.innerHTML = ``;
         this.reposUI.innerHTML = ``;

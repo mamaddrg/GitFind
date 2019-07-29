@@ -1,5 +1,4 @@
 class User {
-
     constructor(username, avatarURL, htmlURL, type, name, publicRepos, company, gists, followers, followings, webSite, location, memberSince) {
         this.username = username;
         this.avatarURL = avatarURL;
@@ -14,11 +13,5 @@ class User {
         this.webSite = webSite;
         this.location = location;
         this.memberSince = memberSince;
-        this.reposList = []; // we set repos later in another request
     }
-
-    setUserRepos(reposList) {
-        
-    }
-
 }
