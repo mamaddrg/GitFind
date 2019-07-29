@@ -14,8 +14,8 @@ class UI {
             const searchedText = event.target.value;
             if (searchedText != '') {
                 /* Requset Git Class To Retrive Searched Text
-                 (then) After Receiving User And Repos, Pass Them to 
-                 ShowUserProfile And ShowUserRepos To Parse Data And Display In UI. */
+                (then) After Receiving User And Repos, Pass Them to 
+                ShowUserProfile And ShowUserRepos To Display In UI. */
                 this.git.getUserData(searchedText)
                     .then( data => {
                         // Check If Response Is Null
@@ -24,6 +24,7 @@ class UI {
                             this.showUserRepos(data.reposList);
                         }
                     })
+                    // If Somethings Wrong With The Request
                     .catch( error => {
                         this.clearUI();
                         this.showUserNotFound();
@@ -98,7 +99,7 @@ class UI {
     }
 
 
-    // Clear UI Profile Data
+    // Clear UI Profile And Repos Data
     clearUI() {
         this.profileUI.innerHTML = ``;
         this.reposUI.innerHTML = ``;
